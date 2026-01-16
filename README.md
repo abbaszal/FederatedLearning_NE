@@ -24,7 +24,7 @@ Federated learning has become the de facto standard solution for decentralized t
 
 
 **Branch**  
-- `meditcom-2025`
+- `meditcom2025`
 
 ---
 
@@ -48,7 +48,7 @@ We show how transmission cost and potential network incentives can tune the gap 
 > 📌 *To be published. Official link will be added once available.*
 
 **Branch**  
-- `wcnc-2026`
+- `wcnc2026`
 
 ---
 
