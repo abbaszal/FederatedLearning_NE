@@ -4,7 +4,7 @@ This is a **living repository**. We create separate branches to maintain **perma
 
 ---
 
-## 📄 MeditCom 2025 Paper
+##  MeditCom 2025 Paper
 
 **Abstract**  
 Federated learning has become the de facto standard solution for decentralized training. However, when client participation is voluntary, the final outcome can become unpredictable, especially if data quality varies among the clients. We propose a game-theoretic framework that models federated learning with voluntary participation as a coalition game.
@@ -28,7 +28,7 @@ Federated learning has become the de facto standard solution for decentralized t
 
 ---
 
-## 📄 WCNC 2026 Paper
+##  WCNC 2026 Paper
 
 **Abstract**  
 Federated learning enables multiple clients to collaboratively train a global machine learning model without sharing raw data, improving privacy and confidentiality. However, if client participation is voluntary and costly, certain nodes may decide not to contribute to the global training and rely solely on local classification.  
