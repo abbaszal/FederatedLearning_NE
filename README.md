@@ -1,3 +1,7 @@
+# WCNC 2026
+
+---
+
 # Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation
 
 **Authors**
