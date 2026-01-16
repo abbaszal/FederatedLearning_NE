@@ -10,8 +10,18 @@ This is a **living repository**. We create separate branches to maintain **perma
 Federated learning has become the de facto standard solution for decentralized training. However, when client participation is voluntary, the final outcome can become unpredictable, especially if data quality varies among the clients. We propose a game-theoretic framework that models federated learning with voluntary participation as a coalition game.
 
 **Citation**  
-Zal, A., Marchioro, T., & Badia, L. (2025). *Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation*. In **2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)**. IEEE.  
-> 📌 *Note: The official publication link is not yet available.*
+
+```bibtex
+@INPROCEEDINGS{11104301,
+  author={Zal, Abbas and Marchioro, Thomas and Badia, Leonardo},
+  booktitle={2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)}, 
+  title={Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation}, 
+  year={2025},
+  organization={IEEE}
+}
+
+```
+
 
 **Branch**  
 - `meditcom-2025`
