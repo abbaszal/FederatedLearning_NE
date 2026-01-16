@@ -1,3 +1,7 @@
+#MeditCom 2025
+
+---
+
 # Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation
 
 **Authors**
