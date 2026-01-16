@@ -50,7 +50,8 @@ We show how transmission cost and potential network incentives can tune the gap 
 > 📌 *To be published. Official link will be added once available.*
 
 **Branch**  
-- `wcnc2026`
+- 🔗 **[wcnc2026](https://github.com/abbaszal/FederatedLearningNE2/tree/wcnc2026)**
+
 
 ---
 
