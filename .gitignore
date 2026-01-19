@@ -1,4 +1,4 @@
-# Ignore data files (but allow README.md)
+
 data/*
 !data/README.md
 

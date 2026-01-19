@@ -10,14 +10,8 @@ Available from the UCI Machine Learning Repository at the following [link](https
 
 Available at the following repository [link](https://github.com/romanchereshnev/HuGaDB/tree/master)
 
-Citation:
-```
-@inproceedings{chereshnev2018hugadb,
-  title={Hugadb: Human gait database for activity recognition from wearable inertial sensor networks},
-  author={Chereshnev, Roman and Kert{\'e}sz-Farkas, Attila},
-  booktitle={Analysis of Images, Social Networks and Texts: 6th International Conference, AIST 2017, Moscow, Russia, July 27--29, 2017, Revised Selected Papers 6},
-  pages={131--141},
-  year={2018},
-  organization={Springer}
-}
-```
+
+
+### KDD99
+
+### Adult

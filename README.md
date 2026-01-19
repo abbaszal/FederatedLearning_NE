@@ -66,6 +66,15 @@ The results are saved as follows:
 
 ### Grand Coalition Frequency vs Communication Cost
 
+Before running the script, note that it uses LaTeX rendering via Matplotlib. You must install the following system packages:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y texlive-latex-extra cm-super dvipng
+```
+
+These packages provide the required LaTeX binaries and fonts used during figure generation.
+
 To generate figures showing how the grand coalition frequency (as a stable coalition and Nash equilibrium) varies with the communication cost for different federated learning models and client counts, using:
 
 * **Ψ*** — Perfect estimator
@@ -138,16 +147,7 @@ To see:
 
 To generate boxplots of the local accuracy distribution across clients, compared to the median global accuracy for each federated learning model, run `src/explore.py`.
 
-Before running the script, note that it uses LaTeX rendering via Matplotlib. You must install the following system packages:
-
-```bash
-sudo apt-get update
-sudo apt-get install -y texlive-latex-extra cm-super dvipng
-```
-
-These packages provide the required LaTeX binaries and fonts used during figure generation.
-
-Then, run from the project root directory:
+Run from the project root directory:
 
 ```bash
 python src/explore.py
