@@ -1,6 +1,6 @@
 # Game Theoretic Analysis of Coalition Stability in Federated Learning
 
-Federated Learning under voluntary participation, unlike settings where client contribution is assumed, assumes data owners are rational clients who decide whether to join or remain outside a coalition to maximize their own utility. In this setting, participation is driven by a comparison between local and global accuracy.
+Federated Learning under voluntary participation, unlike settings where client participation is assumed, assumes data owners are rational clients who decide whether to join or remain outside a coalition to maximize their own utility. In this setting, participation is driven by a comparison between local and global accuracy.
 
 In our game theoretic framework, a client’s utility is defined by the accuracy of its model:
 
