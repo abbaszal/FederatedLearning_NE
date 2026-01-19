@@ -12,7 +12,7 @@ And, the stability of a client coalition is characterized as a Nash Equilibrium 
 - Clients outside the coalition have no incentive to join.  
 - Clients inside the coalition have no incentive to leave.
 
-This framework is used to analyze the stability of the grand coalition (where all clients participate) under different conditions, such as a complete information scenario, an incomplete information scenario, and the inclusion of a communication cost term.
+This framework is used to analyze the stability of the grand coalition (where all clients participate) under different conditions, such as a complete information scenario, an incomplete information scenario, the impact of data heterogeneity among clients on grand coalition stability, and the inclusion of a communication cost term.
 
 ---
 
