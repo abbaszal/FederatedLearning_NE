@@ -53,4 +53,5 @@ for model in ("fedlr", "fedfor"):
     plt.tight_layout()
     plt.title(model_names[model])
     plt.savefig(f"fig/{model}_boxplot1.pdf", dpi=300)
+    plt.savefig(f"fig/{model}_boxplot.png", dpi=300)
     plt.show()

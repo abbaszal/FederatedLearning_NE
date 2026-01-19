@@ -77,4 +77,5 @@ for model in df_["model"].unique():
 
     pretty_comm_cost = f"{comm_cost:.4f}".replace(".", "_")
     plt.savefig(f"fig/{model}_frequency_barplot_{pretty_comm_cost}.pdf")
+    plt.savefig(f"fig/{model}_frequency_barplot_{pretty_comm_cost}.png" , dpi=300)
     plt.show()

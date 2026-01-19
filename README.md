@@ -1,222 +1,171 @@
 # WCNC 2026
 
----
+## Costs and Incentives for Data Owners to Participate in Federated Learning Seen Through Game Theory
 
-# Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation
+**Authors**  
+Abbas Zal, Alessandro Buratto, Thomas Marchioro, Leonardo Badia  
 
-**Authors**
-Abbas Zal, Thomas Marchioro, Leonardo Badia
-
-Emails: `{abbas.zal@studenti., thomas.marchioro@, leonardo.badia@}unipd.it`
-
----
-
-## Code used in the paper:
-
-
-Zal A, Marchioro T, Badia L. [Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation](https://ieeexplore.ieee.org/abstract/document/11104301). In *2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)*. IEEE; 2025.
-
+**Emails**  
+`{abbas.zal@studenti., alessandro.buratto.1@phd., thomas.marchioro@, leonardo.badia@}unipd.it`
 
 ---
 
-## Requirements
+## Code Used in the Paper
 
-Ensure you have the following Python packages installed:
-
-```
-matplotlib >= 3.10.3  
-numpy >= 2.2.6  
-pandas >= 2.2.3  
-scikit-learn >= 1.6.1
-```
-
->  **Note:** Earlier versions of these libraries might work but are not tested.
+Zal A., Marchioro T., Badia L. *Costs and Incentives for Data Owners to Participate in Federated Learning Seen Through Game Theory*.  
+In **2026 IEEE Wireless Communications and Networking Conference (WCNC)**. IEEE, 2026.
 
 ---
-
 
 ## Reproducing Results
 
-* First Clone the Repository, then:
+First, clone the repository. Then, using a Python virtual environment or a Conda environment:
 
-
-### 1. Datasets
-
-#### Spambase Dataset
-
-* Download the dataset from [UCI Spambase](https://archive.ics.uci.edu/static/public/94/spambase.zip).
-* Extract and place the data files into the `data/` directory.
-
-#### HuGaDB Dataset
-
-* The HuGaDB dataset should be preprocessed using the code available at https://github.com/thomasmarchioro3/FederatedForestsWithDP.
-Clone or copy the contents of the metadata directory from that repository into `data/HuGaDB/`, and ensure all files are placed correctly within the `data/` directory structure.
-* The HuGaDB dataset is pre-partitioned for **18 clients**.
-
-
-### 2. Federated Learning Experiments Without Low-Quality Clients (LQCs)
-
-These commands reproduce results using default parameters:
-
-* `--n_clients` is set to 10 by default.
-* `--n_trials` is 1 for basic and 10 for evaluation(for each max iterations and max depth).
-* `--max_iter` (also used as `max_depth` for decision trees) is set to 100.
-* For HuGaDB, we use a sample size of 350 per client by default.
-
-#### HuGaDB Dataset
+1. Activate the environment.
+2. Install the dependencies:
 
 ```bash
-python src/hugadb_without_lqc.py basic --approach fedlr --model_type logistic
-python src/hugadb_without_lqc.py basic --approach fedfor --model_type decisiontree
+pip install -r requirements.txt
+```
+---
 
-python src/hugadb_without_lqc.py evaluating --approach fedlr --model_type logistic
-python src/hugadb_without_lqc.py evaluating --approach fedlr --model_type decisiontree
+## The Estimator
+
+First, run `estimator.py`. This script supports two evaluation modes:
+
+* **lodo** — Leave-One-Dataset-Out.
+  For example, in one round the entire KDD99 history is used as the test set, while the histories of the other datasets (i.e., Spambase, HuGaDB, Adult) are used as the training set.
+
+* **split** — Train/test split within each dataset.
+
+Run from the project root directory:
+
+```bash
+python src/estimator.py lodo
 ```
 
-#### Spambase Dataset
+and
 
 ```bash
-python src/spambase_without_lqc.py basic --approach fedlr --model_type logistic
-python src/spambase_without_lqc.py basic --approach fedfor --model_type decisiontree
-
-python src/spambase_without_lqc.py evaluating --approach fedlr --model_type logistic
-python src/spambase_without_lqc.py evaluating --approach fedlr --model_type decisiontree
+python src/estimator.py split
 ```
 
-> **Note:** For Spambase, avoid significantly increasing the number of clients due to the limited dataset size.
+The results are saved as follows:
 
---- 
+* For **lodo** mode:
+  `results/lodo_estimator_results.csv`
 
-Now, Run:
+* For **split** mode:
+  `results/split_estimator_results.csv`
+
+
+
+---
+
+## Figure Generation
+
+### Grand Coalition Frequency vs Communication Cost
+
+To generate figures showing how the grand coalition frequency (as a stable coalition and Nash equilibrium) varies with the communication cost for different federated learning models and client counts, using:
+
+* **Ψ*** — Perfect estimator
+* **Ψ̂_SD** — Same-domain (split-dataset) estimator
+* **Ψ̂_CD** — Cross-domain (LODO) estimator
+
+run the following command from the project root directory:
 
 ```bash
-python src/fig1_shapley.py
+python src/plot1.py
 ```
 
 To see:
 
 <p align="center">
-  <img src="fig/shapley_Spambase_results_with_LR.png" width="45%" />
-  <img src="fig/shapley_Spambase_results_with_FedFor.png" width="45%" />
-  <br>
-  <img src="fig/shapley_HuGaDB_results_with_LR.png" width="45%" />
-  <img src="fig/shapley_HuGaDB_results_with_FedFor.png" width="45%" />
+  <img src="fig/fedlr_frequency_vs_comm_cost.png" width="45%" />
+  <img src="fig/fedfor_frequency_vs_comm_cost.png" width="45%" />
 </p>
 
 ---
 
-### 3. Experiments with LQCs
+### Bar Plots for Fixed Communication Cost and Number of Clients
 
-To explore the impact of LQCs, use the following parameters:
+This script generates bar plots comparing the grand coalition frequency obtained from:
 
-* `--n_clients`: number of clients (default: 10)
-* `--hyper_params`: max iterations and max depth (default: `10,100`)
-* `--n_trials`: number of trials (default: 50 trials for each max iterations and max depth )
-* `--noise_stds`: list of noise standard deviations (default: `[0.1, 0.3, 0.5, 0.7, 1, 2, 3, 4, 5]`)
-* `--corruption_prob`: probability of data corruption (default: 0.8)
-* `--nan_prob`: probability of missing values (default: 0.5)
-* `--label_corruption_prob`: probability of flipping labels (default: 0.2)
-* `--sample_size`: number of samples per client just for HuGaDB(default: 350 )
+* **Ψ***,
+* **Ψ̂_SD**,
+* **Ψ̂_CD**,
 
-If `--corrupted_clients` is not specified, the script defaults to running evaluations across all possible corruption configurations.(.i.e. 0 to `--n_clients`)
+for a fixed number of clients and a fixed communication cost.
 
-then you can run:
-
-
-#### HuGaDB with LQCs
+Run the script from the project root directory:
 
 ```bash
-python src/hugadb_with_lqc.py --approach fedlr
-python src/hugadb_with_lqc.py --approach fedfor
+python src/plot2.py --cc <communication cost> --nc <number of clients>
 ```
 
-#### Spambase with LQCs
+Where:
+
+* `--cc` is the communication cost **C**.
+  Valid values are:
+
+  ```
+  0.0, 0.0125, 0.025, 0.05, 0.1
+  ```
+
+* `--nc` is the number of clients **N**.
+  Valid values are:
+
+  ```
+  10, 20, 30, 40, 50, 60, 70, 80, 90, 100
+  ```
+
+Example:
 
 ```bash
-python src/spambase_with_lqc.py --approach fedlr
-python src/spambase_with_lqc.py --approach fedfor
-```
-
----
-
-
-
-Now, Run:
-
-```bash
-python src/table1_ne_distribution.py
-```
-
-This output similar to the following table:
-
-
-
-| Algorithm         | Nash Equilibrium   | Count | Global Accuracy (Std)     |
-|------------------|--------------------|-------|-----------------------|
-| **fedfor HuGaDB** | Grand coalition    | 99    | 0.7552 (0.0306)     |
-|                  | Other coalitions   | 15    | 0.4432 (0.0665)     |
-| **fedlr HuGaDB**  | Grand coalition    | 100   | 0.6641 (0.0093)     |
-|                  | Other coalitions   | 30    | 0.4592 (0.0148)     |
-| **fedfor Spambase** | Grand coalition | 99    | 0.9203 (0.0085)     |
-|                  | Other coalitions   | 90    | 0.7532 (0.0859)     |
-| **fedlr Spambase** | Grand coalition  | 95    | 0.9277 (0.0036)     |
-|                  | Other coalitions   | 7     | 0.9153 (0.0079)     |
-
-
----
-
-
-Run:
-
-```bash
-python src/fig2_ne_vs_lqc.py
+python src/plot2.py --cc 0.025 --nc 50
 ```
 
 To see:
 
 <p align="center">
-  <img src="fig/ne_hist_vs_lqc_FedLR_Spambase.png" width="45%" />
-  <img src="fig/ne_hist_vs_lqc_FedFor_Spambase.png" width="45%" />
-  <br>
-  <img src="fig/ne_hist_vs_lqc_FedLR_HuGaDB.png" width="45%" />
-  <img src="fig/ne_hist_vs_lqc_FedFor_HuGaDB.png" width="45%" />
+  <img src="fig/fedlr_frequency_barplot_0_0250.png" width="45%" />
+  <img src="fig/fedfor_frequency_barplot_0_0250.png" width="45%" />
 </p>
-
 
 ---
 
-Run:
+### Boxplots of Local Accuracy Distribution
+
+To generate boxplots of the local accuracy distribution across clients, compared to the median global accuracy for each federated learning model, run `src/explore.py`.
+
+Before running the script, note that it uses LaTeX rendering via Matplotlib. You must install the following system packages:
 
 ```bash
-python src/fig3_grandcoalition_vs_lqc.py
+sudo apt-get update
+sudo apt-get install -y texlive-latex-extra cm-super dvipng
+```
+
+These packages provide the required LaTeX binaries and fonts used during figure generation.
+
+Then, run from the project root directory:
+
+```bash
+python src/explore.py
 ```
 
 To see:
 
 <p align="center">
-  <img src="fig/grand_coalition_vs_lqc_FedLR_Spambase.png" width="45%" />
-  <img src="fig/grand_coalition_vs_lqc_FedFor_Spambase.png" width="45%" />
-  <br>
-  <img src="fig/grand_coalition_vs_lqc_FedLR_HuGaDB.png" width="45%" />
-  <img src="fig/grand_coalition_vs_lqc_FedFor_HuGaDB.png" width="45%" />
+  <img src="fig/fedlr_boxplot.png" width="45%" />
+  <img src="fig/fedfor_boxplot.png" width="45%" />
 </p>
 
+---
 
-#### Bibtex citation:
+## BibTeX Citation
 
-To cite this work, please use the following bibtex entry:
+To cite this work, please use the following BibTeX entry:
 
 ```bibtex
-@INPROCEEDINGS{11104301,
-  author={Zal, Abbas and Marchioro, Thomas and Badia, Leonardo},
-  booktitle={2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)}, 
-  title={Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation}, 
-  year={2025},
-  organization={IEEE}
-}
-
+📌 To be published. Official link will be added once available.
 ```
-
-
-
-

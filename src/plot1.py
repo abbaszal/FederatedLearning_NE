@@ -84,4 +84,5 @@ for model in df["model"].unique():
         plt.ylim(-0.05, 0.65)
     plt.tight_layout()
     plt.savefig(f"fig/{model}_frequency_vs_comm_cost.pdf")
+    plt.savefig(f"fig/{model}_frequency_vs_comm_cost.png" , dpi=300)
     plt.show()
