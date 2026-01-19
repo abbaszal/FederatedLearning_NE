@@ -10,8 +10,7 @@ This is a living repository. Separate branches are created to maintain permanent
 **Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation**  
 
 
-*2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)*  
-🔗 https://ieeexplore.ieee.org/abstract/document/11104301
+*[2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)](https://ieeexplore.ieee.org/abstract/document/11104301)* 
 
 **Branch**  
 - 🔗 **[meditcom2025](https://github.com/abbaszal/FederatedLearning_NE/tree/meditcom2025)**
