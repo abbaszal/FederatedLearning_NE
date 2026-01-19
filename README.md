@@ -8,6 +8,8 @@ This is a living repository. Separate branches are created to maintain permanent
 
 ### MeditCom 2025  
 **Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation**  
+
+
 *2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)*  
 🔗 https://ieeexplore.ieee.org/abstract/document/11104301
 
@@ -18,6 +20,8 @@ This is a living repository. Separate branches are created to maintain permanent
 
 ### WCNC 2026  
 **Costs and Incentives for Data Owners to Participate in Federated Learning Seen Through Game Theory**  
+
+
 *2026 IEEE Wireless Communications and Networking Conference (WCNC)*
 
 **Branch**  
