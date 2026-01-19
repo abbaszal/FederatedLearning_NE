@@ -1,57 +1,48 @@
-# Federated Learning Coalition Game Framework
+# Federated Learning Under a Game-Theoretic Framework
 
-This is a **living repository**. We create separate branches to maintain **permanent code snapshots for each paper** associated with this project.
+This is a living repository. Separate branches are created to maintain permanent code snapshots for each paper associated with this project.
 
 ---
 
-##  MeditCom 2025 Paper
+## Associated Publications:
 
-**Abstract**  
-Federated learning has become the de facto standard solution for decentralized training. However, when client participation is voluntary, the final outcome can become unpredictable, especially if data quality varies among the clients. We propose a game-theoretic framework that models federated learning with voluntary participation as a coalition game.
+### MeditCom 2025  
+**Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation**  
+*2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)*  
+🔗 https://ieeexplore.ieee.org/abstract/document/11104301
 
-**Citation**  
+**Branch**  
+- 🔗 **[meditcom2025](https://github.com/abbaszal/FederatedLearning_NE/tree/meditcom2025)**
+
+---
+
+### WCNC 2026  
+**Costs and Incentives for Data Owners to Participate in Federated Learning Seen Through Game Theory**  
+*2026 IEEE Wireless Communications and Networking Conference (WCNC)*
+
+**Branch**  
+- 🔗 **[wcnc2026](https://github.com/abbaszal/FederatedLearning_NE/tree/wcnc2026)**
+
+---
+
+## Citations
+
+To cite the **MeditCom 2025** project, use the following BibTeX entry:
 
 ```bibtex
 @INPROCEEDINGS{11104301,
-  author={Zal, Abbas and Marchioro, Thomas and Badia, Leonardo},
-  booktitle={2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)}, 
-  title={Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation}, 
-  year={2025},
-  organization={IEEE}
+  author    = {Zal, Abbas and Marchioro, Thomas and Badia, Leonardo},
+  booktitle = {2025 IEEE International Mediterranean Conference on Communications and Networking (MeditCom)},
+  title     = {Evaluating Coalition Stability in Federated Learning Under Voluntary Client Participation},
+  year      = {2025},
+  organization = {IEEE}
 }
+````
 
+To cite the **WCNC 2026** project , use the following BibTeX entry:
+
+
+```bibtex
+> To be published. will be added once available.
 ```
-
-
-**Branch**  
-- 🔗 **[meditcom2025](https://github.com/abbaszal/FederatedLearningNE2/tree/meditcom2025)**
-
-
-
----
-
-##  WCNC 2026 Paper
-
-**Abstract**  
-Federated learning enables multiple clients to collaboratively train a global machine learning model without sharing raw data, improving privacy and confidentiality. However, if client participation is voluntary and costly, certain nodes may decide not to contribute to the global training and rely solely on local classification.  
-
-In this paper, we apply coalition game theory to represent this scenario and explore whether network-wide cooperation is pursued by all nodes, depending on data quality and communication cost. Stable coalitions are represented as Nash equilibria, for which we compute the achieved performance.
-
-We validate our approach using four public benchmarking datasets:
-- **HuGaDB**
-- **Adult**
-- **Spambase**
-- **KDD99**
-
-
-We show how transmission cost and potential network incentives can tune the gap between coalition-based training and standalone learning performance.
-
-**Citation**  
-> 📌 *To be published. Official link will be added once available.*
-
-**Branch**  
-- 🔗 **[wcnc2026](https://github.com/abbaszal/FederatedLearningNE2/tree/wcnc2026)**
-
-
----
 
