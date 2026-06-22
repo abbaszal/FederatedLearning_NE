@@ -62,6 +62,16 @@ To cite the **WCNC 2026** project , use the following BibTeX entry:
 
 
 ```bibtex
-> To be published. will be added once available.
+@INPROCEEDINGS{11555251,
+  author={Zal, Abbas and Buratto, Alessandro and Marchioro, Thomas and Badia, Leonardo},
+  booktitle={2026 IEEE Wireless Communications and Networking Conference (WCNC)}, 
+  title={Costs and Incentives for Data Owners to Participate in Federated Learning Seen Through Game Theory}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={1-6},
+  keywords={Modeling;Costing;Costs;Federated learning;Games;Printing;Accuracy;Equations;Training;Radio access networks;Federated learning;Game theory;Coalition formation;Distributed network management;Nash equilibrium},
+  doi={10.1109/WCNC65185.2026.11555251}}
+
 ```
 
